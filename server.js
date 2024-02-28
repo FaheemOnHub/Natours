@@ -19,40 +19,20 @@ mongoose
     console.log('DB connection successful');
   });
 
-//Mongoose-Schema...
-const tourSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  rating: {
-    type: Number,
-    default: 4.5,
-  },
-  price: {
-    type: Number,
-    required: [true, 'A tour must have a price'],
-  },
-});
+// const testTour = new TourModel({
+//   name: 'The Forest Hiker',
+//   rating: 4.3,
+//   price: 200,
+// });
 
-//Mongoose-Model
-const TourModel = mongoose.model('Tour', tourSchema);
-
-const testTour = new TourModel({
-  name: 'The Forest Hiker',
-  rating: 4.3,
-  price: 200,
-});
-
-testTour
-  .save()
-  .then((doc) => {
-    console.log(doc);
-  })
-  .catch((err) => {
-    console.log('We have a ERROR', err);
-  });
+// testTour
+//   .save()
+//   .then((doc) => {
+//     console.log(doc);
+//   })
+//   .catch((err) => {
+//     console.log('We have a ERROR', err);
+//   });
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App is running on port ${port}`);
